@@ -1,7 +1,8 @@
-package com.example.myqiitaapp
+package com.example.myqiitaapp.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.myqiitaapp.R
 
 class MainActivity : AppCompatActivity() {
 
