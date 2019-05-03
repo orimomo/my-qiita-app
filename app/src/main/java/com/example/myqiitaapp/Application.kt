@@ -2,7 +2,6 @@ package com.example.myqiitaapp
 
 import com.example.myqiitaapp.di.KoinModule
 import org.koin.android.ext.android.startKoin
-import org.koin.standalone.StandAloneContext.startKoin
 
 class Application : android.app.Application() {
 

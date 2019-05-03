@@ -1,5 +1,7 @@
 package com.example.myqiitaapp.di
 
+import com.example.myqiitaapp.data.ApiClient
+import com.example.myqiitaapp.data.ItemRepository
 import org.koin.dsl.module.module
 
 object KoinModule {
@@ -8,6 +10,7 @@ object KoinModule {
     )
 
     private fun dataModule() = module {
-
+        single { ApiClient.retrofit }
+        single { ItemRepository(get()) }
     }
 }
