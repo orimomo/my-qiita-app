@@ -29,5 +29,4 @@ object ApiClient {
             .baseUrl(BuildConfig.BASE_URL)
             .build()
     }
-
 }
