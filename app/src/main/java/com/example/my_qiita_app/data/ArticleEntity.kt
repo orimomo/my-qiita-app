@@ -8,5 +8,7 @@ data class ArticleEntity(
     @Json(name = "title") // タイトル
     val title: String,
     @Json(name = "body") // 記事の中身
-    val body: String
+    val body: String,
+    @Json(name = "url")
+    val url: String
 )

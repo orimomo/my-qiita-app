@@ -4,16 +4,18 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="text" type="String"/>
+        <variable
+            name="article"
+            type="com.example.my_qiita_app.data.ArticleEntity"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/textView"
-            android:text="@{text}"
+            android:id="@+id/title"
+            android:text="@{article.title}"
             android:textSize="14sp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -24,7 +26,7 @@
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="くだもの"/>
+            tools:text="タイトル"/>
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -36,5 +38,17 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+            android:id="@+id/createdAt"
+            android:text="@{article.url}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/title"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

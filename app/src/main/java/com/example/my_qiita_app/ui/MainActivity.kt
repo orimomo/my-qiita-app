@@ -30,20 +30,17 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         super.onCreate(savedInstanceState)
         binding.lifecycleOwner = this
 
+        val groupAdapter = GroupAdapter<ViewHolder>()
+        findViewById<RecyclerView>(R.id.recycler_view).adapter = groupAdapter
+
         viewModel.articles.observe(this, Observer { articles ->
-            val a = articles
+            articles.forEach { article ->
+                groupAdapter.add(ListItem(article))
+            }
         })
 
         launch {
             viewModel.load()
-        }
-
-        val groupAdapter = GroupAdapter<ViewHolder>()
-        findViewById<RecyclerView>(R.id.recycler_view).adapter = groupAdapter
-
-        val items = listOf("りんご", "みかん", "ぶどう")
-        items.forEach { a ->
-            groupAdapter.add(ListItem(a))
         }
     }
 }
