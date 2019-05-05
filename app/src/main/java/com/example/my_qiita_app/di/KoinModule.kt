@@ -4,6 +4,7 @@ import com.example.my_qiita_app.data.ApiClient
 import com.example.my_qiita_app.data.ArticleRepository
 import com.example.my_qiita_app.domain.ArticleUseCase
 import com.example.my_qiita_app.ui.ArticleViewModel
+import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
 object KoinModule {
@@ -23,6 +24,6 @@ object KoinModule {
     }
 
     private fun uiModule() = module {
-        single { ArticleViewModel(get()) }
+        viewModel { ArticleViewModel(get()) }
     }
 }
