@@ -1,7 +1,7 @@
-package com.example.myqiitaapp.ui.list
+package com.example.my_qiita_app.ui
 
-import com.example.myqiitaapp.R
-import com.example.myqiitaapp.databinding.ItemListBinding
+import com.example.my_qiita_app.R
+import com.example.my_qiita_app.databinding.ItemListBinding
 import com.xwray.groupie.databinding.BindableItem
 
 class ListItem(private val text: String) : BindableItem<ItemListBinding>() {
