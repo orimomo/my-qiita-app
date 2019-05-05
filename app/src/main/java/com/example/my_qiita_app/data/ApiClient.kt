@@ -1,6 +1,6 @@
-package com.example.myqiitaapp.data
+package com.example.my_qiita_app.data
 
-import com.example.myqiitaapp.BuildConfig
+import com.example.my_qiita_app.BuildConfig
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient

@@ -1,6 +1,6 @@
-package com.example.myqiitaapp
+package com.example.my_qiita_app
 
-import com.example.myqiitaapp.di.KoinModule
+import com.example.my_qiita_app.di.KoinModule
 import org.koin.android.ext.android.startKoin
 
 class Application : android.app.Application() {

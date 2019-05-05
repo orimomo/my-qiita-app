@@ -1,4 +1,4 @@
-package com.example.myqiitaapp.data
+package com.example.my_qiita_app.data
 
 import retrofit2.Retrofit
 

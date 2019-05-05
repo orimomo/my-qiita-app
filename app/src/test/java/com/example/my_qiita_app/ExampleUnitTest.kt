@@ -1,4 +1,4 @@
-package com.example.myqiitaapp
+package com.example.my_qiita_app
 
 import org.junit.Test
 

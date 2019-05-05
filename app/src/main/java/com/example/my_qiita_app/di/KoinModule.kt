@@ -1,7 +1,7 @@
-package com.example.myqiitaapp.di
+package com.example.my_qiita_app.di
 
-import com.example.myqiitaapp.data.ApiClient
-import com.example.myqiitaapp.data.ArticleRepository
+import com.example.my_qiita_app.data.ApiClient
+import com.example.my_qiita_app.data.ArticleRepository
 import org.koin.dsl.module.module
 
 object KoinModule {

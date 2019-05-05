@@ -1,4 +1,4 @@
-package com.example.myqiitaapp.data
+package com.example.my_qiita_app.data
 
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET

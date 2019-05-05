@@ -1,1 +1,1 @@
-# MyQiitaApp
+# my_qiita_app
