@@ -4,11 +4,11 @@ import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface ItemService {
+interface ArticleService {
     @GET("api/v2/items")
     fun getItems(
         @Query("page") page: String,
         @Query("par_page") perPage: String
 //        @Query("query") query: String
-    ): Deferred<List<ItemEntity>>
+    ): Deferred<List<ArticleEntity>>
 }

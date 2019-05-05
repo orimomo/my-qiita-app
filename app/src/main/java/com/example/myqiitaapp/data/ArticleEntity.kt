@@ -2,7 +2,7 @@ package com.example.myqiitaapp.data
 
 import com.squareup.moshi.Json
 
-data class ItemEntity(
+data class ArticleEntity(
     @Json(name = "id") // 記事ID
     val id: String,
     @Json(name = "title") // タイトル
