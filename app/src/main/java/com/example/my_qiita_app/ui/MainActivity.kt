@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding.lifecycleOwner = this
 
         viewModel.articles.observe(this, Observer { articles ->
             val a = articles
