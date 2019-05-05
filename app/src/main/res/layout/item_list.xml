@@ -40,7 +40,7 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
         <TextView
             android:id="@+id/createdAt"
-            android:text="@{article.url}"
+            android:text="@{article.createdAt}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="11sp"
