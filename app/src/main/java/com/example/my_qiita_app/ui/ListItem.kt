@@ -1,4 +1,4 @@
-package com.example.my_qiita_app.ui.list
+package com.example.my_qiita_app.ui
 
 import com.example.my_qiita_app.R
 import com.example.my_qiita_app.databinding.ItemListBinding

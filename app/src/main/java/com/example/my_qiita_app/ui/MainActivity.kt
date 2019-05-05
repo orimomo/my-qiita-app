@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
 import com.example.my_qiita_app.R
-import com.example.my_qiita_app.ui.list.ListItem
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 
