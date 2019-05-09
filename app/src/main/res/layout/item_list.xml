@@ -13,42 +13,45 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="12dp"
+            app:srcCompat="@android:drawable/sym_def_app_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
         <TextView
             android:id="@+id/title"
             android:text="@{article.title}"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="タイトル"/>
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="8dp"
-            app:srcCompat="@android:drawable/sym_def_app_icon"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+
         <TextView
             android:id="@+id/createdAt"
             android:text="@{article.createdAt}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="11sp"
+            android:textSize="12sp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/title"/>
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:text="投稿日"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
