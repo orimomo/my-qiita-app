@@ -11,6 +11,8 @@ data class ArticleEntity(
     val body: String,
     @Json(name = "url")
     val url: String,
+    @Json(name = "user")
+    val user: UserEntity,
     @field:Json(name = "created_at")
     val createdAt: String
 )
