@@ -1,14 +1,20 @@
 package com.example.my_qiita_app.ui
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.example.my_qiita_app.data.ArticleEntity
 import com.example.my_qiita_app.domain.ArticleUseCase
+import kotlinx.coroutines.launch
 
-class ArticleViewModel(private val useCase: ArticleUseCase) : ViewModel(){
+class ArticleViewModel(private val useCase: ArticleUseCase) : ViewModel(), LifecycleObserver {
     val articles = MutableLiveData<List<ArticleEntity>>()
 
-    suspend fun load() {
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    @Suppress("UNUSED")
+    fun onCreate() = viewModelScope.launch {
+        load()
+    }
+
+    private suspend fun load() {
         try {
             articles.value = useCase.getArticles()
         } catch(e: Throwable) {
