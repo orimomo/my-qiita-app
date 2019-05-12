@@ -30,10 +30,12 @@ class ListFragment : Fragment(), CoroutineScope {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentLsitBinding.inflate(inflater, container, false)
         binding.recyclerView.adapter = groupAdapter
 
         viewModel.articles.observe(this, Observer { articles ->
+            groupAdapter.clear() // recyclerViewを一度破棄する
             articles.forEach { article ->
                 groupAdapter.add(ListItem(article))
             }
