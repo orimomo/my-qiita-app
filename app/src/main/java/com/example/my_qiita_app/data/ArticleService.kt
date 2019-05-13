@@ -6,9 +6,9 @@ import retrofit2.http.Query
 
 interface ArticleService {
     @GET("api/v2/items")
-    fun getArticles(
+    fun getArticlesAsync(
         @Query("page") page: String,
+        @Query("query") query: String,
         @Query("par_page") perPage: String = "20"
-//        @Query("query") query: String
     ): Deferred<List<ArticleEntity>>
 }

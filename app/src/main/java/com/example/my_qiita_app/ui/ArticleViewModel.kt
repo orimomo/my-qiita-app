@@ -16,7 +16,7 @@ class ArticleViewModel(private val useCase: ArticleUseCase) : ViewModel(), Lifec
 
     private suspend fun load() {
         try {
-            articles.value = useCase.getArticles("1")
+            articles.value = useCase.getkotlinArticles("1", "tag=kotlin")
         } catch(e: Throwable) {
             // TODO: エラーハンドリング
         }

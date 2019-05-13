@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
     inner class ListPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         private val items = listOf("kotlin", "Android", "Swift", "iOS")
         override fun getItem(position: Int): Fragment {
-            return ListFragment()
+            return ListFragment(items[position])
         }
 
         override fun getCount(): Int {

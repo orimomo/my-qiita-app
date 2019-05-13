@@ -15,7 +15,7 @@ import kotlinx.coroutines.Job
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import kotlin.coroutines.CoroutineContext
 
-class ListFragment : Fragment(), CoroutineScope {
+class ListFragment(tabName: String) : Fragment(), CoroutineScope {
     private lateinit var binding: FragmentLsitBinding
     private val viewModel by sharedViewModel<ArticleViewModel>()
     private val groupAdapter = GroupAdapter<ViewHolder>()

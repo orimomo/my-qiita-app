@@ -4,7 +4,7 @@ import com.example.my_qiita_app.data.ArticleEntity
 import com.example.my_qiita_app.data.ArticleRepository
 
 class ArticleUseCase(private val repository: ArticleRepository) {
-    suspend fun getArticles(page: String): List<ArticleEntity> {
-        return repository.getArticles(page)
+    suspend fun getkotlinArticles(page: String, query: String): List<ArticleEntity> {
+        return repository.getArticles(page, query)
     }
 }
