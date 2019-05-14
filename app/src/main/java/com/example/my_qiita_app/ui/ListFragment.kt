@@ -15,7 +15,7 @@ import kotlinx.coroutines.Job
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import kotlin.coroutines.CoroutineContext
 
-class ListFragment(tabName: String) : Fragment(), CoroutineScope {
+class ListFragment(private val tabName: String) : Fragment(), CoroutineScope {
     private lateinit var binding: FragmentLsitBinding
     private val viewModel by sharedViewModel<ArticleViewModel>()
     private val groupAdapter = GroupAdapter<ViewHolder>()
@@ -34,12 +34,42 @@ class ListFragment(tabName: String) : Fragment(), CoroutineScope {
         binding = FragmentLsitBinding.inflate(inflater, container, false)
         binding.recyclerView.adapter = groupAdapter
 
-        viewModel.articles.observe(this, Observer { articles ->
-            groupAdapter.clear() // recyclerViewを一度破棄する
-            articles.forEach { article ->
-                groupAdapter.add(ListItem(article))
-            }
-        })
+        if (tabName == "kotlin") {
+            viewModel.kotlinArticles.observe(this, Observer { articles ->
+                groupAdapter.clear() // recyclerViewを一度破棄する
+                articles.forEach { article ->
+                    groupAdapter.add(ListItem(article))
+                }
+            })
+        }
+
+        if (tabName == "android") {
+            viewModel.androidArticles.observe(this, Observer { articles ->
+                groupAdapter.clear() // recyclerViewを一度破棄する
+                articles.forEach { article ->
+                    groupAdapter.add(ListItem(article))
+                }
+            })
+        }
+
+        if (tabName == "swift") {
+            viewModel.swiftArticles.observe(this, Observer { articles ->
+                groupAdapter.clear() // recyclerViewを一度破棄する
+                articles.forEach { article ->
+                    groupAdapter.add(ListItem(article))
+                }
+            })
+        }
+
+        if (tabName == "ios") {
+            viewModel.iosArticles.observe(this, Observer { articles ->
+                groupAdapter.clear() // recyclerViewを一度破棄する
+                articles.forEach { article ->
+                    groupAdapter.add(ListItem(article))
+                }
+            })
+        }
+
         return binding.root
     }
 
