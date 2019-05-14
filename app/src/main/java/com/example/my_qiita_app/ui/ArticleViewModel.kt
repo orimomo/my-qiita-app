@@ -19,10 +19,10 @@ class ArticleViewModel(private val useCase: ArticleUseCase) : ViewModel(), Lifec
 
     private suspend fun load() {
         try {
-            kotlinArticles.value = useCase.getArticles("1", "tag=kotlin")
-            androidArticles.value = useCase.getArticles("1", "tag=android")
-            swiftArticles.value = useCase.getArticles("1", "tag=swift")
-            iosArticles.value = useCase.getArticles("1", "tag=ios")
+            kotlinArticles.value = useCase.getArticles("1", "tag:kotlin")
+            androidArticles.value = useCase.getArticles("1", "tag:android")
+            swiftArticles.value = useCase.getArticles("1", "tag:swift")
+            iosArticles.value = useCase.getArticles("1", "tag:ios")
         } catch(e: Throwable) {
             // TODO: エラーハンドリング
         }
