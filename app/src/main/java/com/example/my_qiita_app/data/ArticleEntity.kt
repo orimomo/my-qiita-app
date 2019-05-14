@@ -13,6 +13,18 @@ data class ArticleEntity(
     val url: String,
     @Json(name = "user")
     val user: UserEntity,
+    @Json(name = "tags")
+    val tags: List<TagEntity>,
     @field:Json(name = "created_at")
     val createdAt: String
-)
+) {
+    fun getTagsString() : String {
+        val builder = StringBuilder()
+        builder.append("${tags.first().name}")
+        if (tags.size >= 2) {
+            for (i in 1..(tags.size-1))
+            builder.append(", ${tags[i].name}")
+        }
+        return builder.toString()
+    }
+}
