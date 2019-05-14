@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.example.my_qiita_app.data.ArticleEntity
 import com.example.my_qiita_app.databinding.FragmentLsitBinding
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
@@ -36,41 +37,36 @@ class ListFragment(private val tabName: String) : Fragment(), CoroutineScope {
 
         if (tabName == "kotlin") {
             viewModel.kotlinArticles.observe(this, Observer { articles ->
-                groupAdapter.clear() // recyclerViewを一度破棄する
-                articles.forEach { article ->
-                    groupAdapter.add(ListItem(article))
-                }
+                showArticles(articles)
             })
         }
 
         if (tabName == "android") {
             viewModel.androidArticles.observe(this, Observer { articles ->
-                groupAdapter.clear() // recyclerViewを一度破棄する
-                articles.forEach { article ->
-                    groupAdapter.add(ListItem(article))
-                }
+                showArticles(articles)
             })
         }
 
         if (tabName == "swift") {
             viewModel.swiftArticles.observe(this, Observer { articles ->
-                groupAdapter.clear() // recyclerViewを一度破棄する
-                articles.forEach { article ->
-                    groupAdapter.add(ListItem(article))
-                }
+                showArticles(articles)
             })
         }
 
         if (tabName == "ios") {
             viewModel.iosArticles.observe(this, Observer { articles ->
-                groupAdapter.clear() // recyclerViewを一度破棄する
-                articles.forEach { article ->
-                    groupAdapter.add(ListItem(article))
-                }
+                showArticles(articles)
             })
         }
 
         return binding.root
+    }
+
+    private fun showArticles(articles: List<ArticleEntity>) {
+        groupAdapter.clear() // recyclerViewを一度破棄する
+        articles.forEach { article ->
+            groupAdapter.add(ListItem(article))
+        }
     }
 
     override fun onDestroy() {
