@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.my_qiita_app.data.ArticleEntity
 import com.example.my_qiita_app.databinding.FragmentLsitBinding
 import com.xwray.groupie.GroupAdapter
@@ -32,8 +33,10 @@ class ListFragment(private val tabName: String) : Fragment(), CoroutineScope {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
+        val itemDecoration = DividerItemDecoration(activity, DividerItemDecoration.VERTICAL)
         binding = FragmentLsitBinding.inflate(inflater, container, false)
         binding.recyclerView.adapter = groupAdapter
+        binding.recyclerView.addItemDecoration(itemDecoration)
 
         if (tabName == "kotlin") {
             viewModel.kotlinArticles.observe(this, Observer { articles ->
