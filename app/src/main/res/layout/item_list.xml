@@ -4,6 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="article"
             type="com.example.my_qiita_app.data.ArticleEntity"/>
@@ -19,16 +20,16 @@
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
             app:srcCompat="@android:drawable/sym_def_app_icon"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="8dp"/>
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
             android:id="@+id/title"
             android:text="@{article.title}"
-            android:textSize="16sp"
+            android:textSize="17sp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -37,35 +38,33 @@
             android:layout_marginTop="4dp"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/createdAt"
+            app:layout_constraintTop_toBottomOf="@+id/likes"
             tools:text="タイトル"/>
 
         <TextView
-            android:id="@+id/createdAt"
-            android:text="@{article.createdAt}"
+            android:id="@+id/likes"
+            android:text="@{article.likes + `いいね！`}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="12sp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
             app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintBottom_toTopOf="@+id/title"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="投稿日"/>
+            tools:text="いいね数"/>
 
         <TextView
             android:id="@+id/tags"
             android:text="@{article.getTagsString()}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="2dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
             android:maxLines="1"
             android:ellipsize="end"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintTop_toBottomOf="@+id/title"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
@@ -78,8 +77,10 @@
             android:id="@+id/imageView2"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
             app:srcCompat="@drawable/ic_tag_20dp"
             app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/title"/>
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -15,6 +15,8 @@ data class ArticleEntity(
     val user: UserEntity,
     @Json(name = "tags")
     val tags: List<TagEntity>,
+    @field:Json(name = "likes_count")
+    val likes: String,
     @field:Json(name = "created_at")
     val createdAt: String
 ) {
