@@ -3,16 +3,14 @@ package com.example.my_qiita_app.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import com.example.my_qiita_app.R
 import com.example.my_qiita_app.databinding.ActivityMainBinding
-import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.ViewHolder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.coroutines.CoroutineContext
 
@@ -21,26 +19,35 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
     }
     private val viewModel by viewModel<ArticleViewModel>()
-    private val job = Job()
+    private lateinit var job: Job
 
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.lifecycleOwner = this
+        job = Job()
+        binding.viewPager.adapter = ListPagerAdapter(supportFragmentManager)
+        lifecycle.addObserver(viewModel)
+    }
 
-        val groupAdapter = GroupAdapter<ViewHolder>()
-        findViewById<RecyclerView>(R.id.recycler_view).adapter = groupAdapter
+    override fun onDestroy() {
+        job.cancel()
+        super.onDestroy()
+    }
 
-        viewModel.articles.observe(this, Observer { articles ->
-            articles.forEach { article ->
-                groupAdapter.add(ListItem(article))
-            }
-        })
+    inner class ListPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+        private val items = listOf("kotlin", "android", "swift", "ios")
+        override fun getItem(position: Int): Fragment {
+            return ListFragment(items[position])
+        }
 
-        launch {
-            viewModel.load()
+        override fun getCount(): Int {
+            return items.size
+        }
+
+        override fun getPageTitle(position: Int): CharSequence? {
+            return items[position]
         }
     }
 }
