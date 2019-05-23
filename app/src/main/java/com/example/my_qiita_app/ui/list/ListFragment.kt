@@ -19,6 +19,7 @@ import com.xwray.groupie.ViewHolder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import kotlin.coroutines.CoroutineContext
 
@@ -57,40 +58,11 @@ class ListFragment(private val tabName: String) : Fragment(), CoroutineScope {
                 }
             }
         })
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        if (tabName == "kotlin") {
-            viewModel.kotlinArticles.observe(this, Observer { articles ->
-                showArticles(articles)
-            })
-        }
-
-        if (tabName == "android") {
-            viewModel.androidArticles.observe(this, Observer { articles ->
-                showArticles(articles)
-            })
-        }
-
-        if (tabName == "swift") {
-            viewModel.swiftArticles.observe(this, Observer { articles ->
-                showArticles(articles)
-            })
-        }
-
-        if (tabName == "ios") {
-            viewModel.iosArticles.observe(this, Observer { articles ->
-                showArticles(articles)
-            })
-        }
-
-        viewModel.message.observe(this, Observer { message ->
-            Snackbar.make(binding.root, message , Snackbar.LENGTH_SHORT).show()
-        })
 
         viewModel.status.observe(this, Observer { status ->
             when (status) {
@@ -99,12 +71,31 @@ class ListFragment(private val tabName: String) : Fragment(), CoroutineScope {
                 }
                 ListViewModel.Status.COMPLETED -> {
                     binding.progress.isGone = true
+                    if (tabName == "kotlin") {
+                        showArticles(viewModel.kotlinArticles.value ?: emptyList())
+                    }
+
+                    if (tabName == "android") {
+                        showArticles(viewModel.androidArticles.value ?: emptyList())
+                    }
+
+                    if (tabName == "swift") {
+                        showArticles(viewModel.swiftArticles.value ?: emptyList())
+                    }
+
+                    if (tabName == "ios") {
+                        showArticles(viewModel.iosArticles.value ?: emptyList())
+                    }
                 }
                 ListViewModel.Status.FAILED -> {
                     binding.progress.isGone = true
                 }
                 else -> { }
             }
+        })
+
+        viewModel.message.observe(this, Observer { message ->
+            Snackbar.make(binding.root, message , Snackbar.LENGTH_SHORT).show()
         })
     }
 
