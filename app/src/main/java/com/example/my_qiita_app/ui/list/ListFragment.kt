@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.my_qiita_app.data.entity.ArticleEntity
 import com.example.my_qiita_app.databinding.FragmentLsitBinding
+import com.google.android.material.snackbar.Snackbar
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.coroutines.CoroutineScope
@@ -38,6 +39,12 @@ class ListFragment(private val tabName: String) : Fragment(), CoroutineScope {
         binding.recyclerView.adapter = groupAdapter
         binding.recyclerView.addItemDecoration(itemDecoration)
 
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         if (tabName == "kotlin") {
             viewModel.kotlinArticles.observe(this, Observer { articles ->
                 showArticles(articles)
@@ -62,7 +69,9 @@ class ListFragment(private val tabName: String) : Fragment(), CoroutineScope {
             })
         }
 
-        return binding.root
+        viewModel.message.observe(this, Observer { message ->
+            Snackbar.make(binding.root, message , Snackbar.LENGTH_SHORT).show()
+        })
     }
 
     private fun showArticles(articles: List<ArticleEntity>) {

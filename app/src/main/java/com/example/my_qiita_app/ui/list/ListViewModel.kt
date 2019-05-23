@@ -10,6 +10,7 @@ class ListViewModel(private val useCase: ArticleUseCase) : ViewModel(), Lifecycl
     val androidArticles = MutableLiveData<List<ArticleEntity>>()
     val swiftArticles = MutableLiveData<List<ArticleEntity>>()
     val iosArticles = MutableLiveData<List<ArticleEntity>>()
+    val message = MutableLiveData<String>()
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     @Suppress("UNUSED")
@@ -24,7 +25,7 @@ class ListViewModel(private val useCase: ArticleUseCase) : ViewModel(), Lifecycl
             swiftArticles.value = useCase.getArticles("1", "tag:swift")
             iosArticles.value = useCase.getArticles("1", "tag:ios")
         } catch(e: Throwable) {
-            // TODO: エラーハンドリング
+            message.value = "エラーが発生しました。"
         }
     }
 }
