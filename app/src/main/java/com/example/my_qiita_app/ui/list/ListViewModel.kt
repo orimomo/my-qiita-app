@@ -1,11 +1,11 @@
-package com.example.my_qiita_app.ui
+package com.example.my_qiita_app.ui.list
 
 import androidx.lifecycle.*
-import com.example.my_qiita_app.data.ArticleEntity
+import com.example.my_qiita_app.data.entity.ArticleEntity
 import com.example.my_qiita_app.domain.ArticleUseCase
 import kotlinx.coroutines.launch
 
-class ArticleViewModel(private val useCase: ArticleUseCase) : ViewModel(), LifecycleObserver {
+class ListViewModel(private val useCase: ArticleUseCase) : ViewModel(), LifecycleObserver {
     val kotlinArticles = MutableLiveData<List<ArticleEntity>>()
     val androidArticles = MutableLiveData<List<ArticleEntity>>()
     val swiftArticles = MutableLiveData<List<ArticleEntity>>()

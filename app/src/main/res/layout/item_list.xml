@@ -7,7 +7,7 @@
 
         <variable
             name="article"
-            type="com.example.my_qiita_app.data.ArticleEntity"/>
+            type="com.example.my_qiita_app.data.entity.ArticleEntity"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

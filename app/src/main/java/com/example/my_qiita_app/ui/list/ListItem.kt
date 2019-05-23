@@ -1,9 +1,8 @@
-package com.example.my_qiita_app.ui
+package com.example.my_qiita_app.ui.list
 
-import android.net.Uri
 import com.bumptech.glide.Glide
 import com.example.my_qiita_app.R
-import com.example.my_qiita_app.data.ArticleEntity
+import com.example.my_qiita_app.data.entity.ArticleEntity
 import com.example.my_qiita_app.databinding.ItemListBinding
 import com.xwray.groupie.databinding.BindableItem
 

@@ -1,5 +1,6 @@
 package com.example.my_qiita_app.data
 
+import com.example.my_qiita_app.data.entity.ArticleEntity
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Query

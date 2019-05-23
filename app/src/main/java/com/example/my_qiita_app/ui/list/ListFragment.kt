@@ -1,4 +1,4 @@
-package com.example.my_qiita_app.ui
+package com.example.my_qiita_app.ui.list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.example.my_qiita_app.data.ArticleEntity
+import com.example.my_qiita_app.data.entity.ArticleEntity
 import com.example.my_qiita_app.databinding.FragmentLsitBinding
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
@@ -19,7 +19,7 @@ import kotlin.coroutines.CoroutineContext
 
 class ListFragment(private val tabName: String) : Fragment(), CoroutineScope {
     private lateinit var binding: FragmentLsitBinding
-    private val viewModel by sharedViewModel<ArticleViewModel>()
+    private val viewModel by sharedViewModel<ListViewModel>()
     private val groupAdapter = GroupAdapter<ViewHolder>()
     private lateinit var job: Job
 
