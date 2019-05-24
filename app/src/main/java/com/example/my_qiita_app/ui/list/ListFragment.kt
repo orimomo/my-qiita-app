@@ -46,18 +46,20 @@ class ListFragment(private val tabName: String) : Fragment(), CoroutineScope {
         val layoutManager = LinearLayoutManager(activity)
         binding.recyclerView.layoutManager = layoutManager
 
-        binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-                // 残り3件までスクロールしたら追加読み込みする
-                if (layoutManager.findLastVisibleItemPosition() >= layoutManager.itemCount - 4) {
-                    Snackbar.make(binding.root, "残り3件だよ！" , Snackbar.LENGTH_SHORT).show()
+        // TODO: 残り3件までスクロールしたら追加読み込みするようにしたい
+        // タブによってフラグメント分けないといけないかも…
+//        binding.recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+//            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+//                super.onScrolled(recyclerView, dx, dy)
+//                if (layoutManager.findLastVisibleItemPosition() >= layoutManager.itemCount - 4) {
+//                    Snackbar.make(binding.root, "残り3件だよ！" , Snackbar.LENGTH_SHORT).show()
 //                    launch {
 //                        viewModel.more(args.member.id)
 //                    }
-                }
-            }
-        })
+//                }
+//            }
+//        })
+
         return binding.root
     }
 

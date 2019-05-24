@@ -10,6 +10,6 @@ interface ArticleService {
     fun getArticlesAsync(
         @Query("page") page: String,
         @Query("query") query: String,
-        @Query("par_page") perPage: String = "20"
+        @Query("par_page") perPage: String = "40"
     ): Deferred<List<ArticleEntity>>
 }
