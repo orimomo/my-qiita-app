@@ -1,4 +1,4 @@
-package com.example.my_qiita_app.data
+package com.example.my_qiita_app.data.entity
 
 import com.squareup.moshi.Json
 

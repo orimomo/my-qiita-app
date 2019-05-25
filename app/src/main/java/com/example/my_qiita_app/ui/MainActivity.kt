@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.my_qiita_app.R
 import com.example.my_qiita_app.databinding.ActivityMainBinding
+import com.example.my_qiita_app.ui.list.ListFragment
+import com.example.my_qiita_app.ui.list.ListViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -18,7 +20,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
     private val binding by lazy {
         DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
     }
-    private val viewModel by viewModel<ArticleViewModel>()
+    private val viewModel by viewModel<ListViewModel>()
     private lateinit var job: Job
 
     override val coroutineContext: CoroutineContext

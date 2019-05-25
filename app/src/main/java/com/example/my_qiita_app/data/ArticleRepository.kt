@@ -1,5 +1,6 @@
 package com.example.my_qiita_app.data
 
+import com.example.my_qiita_app.data.entity.ArticleEntity
 import retrofit2.Retrofit
 
 class ArticleRepository(private val retrofit: Retrofit) {
