@@ -16,40 +16,10 @@ import kotlinx.coroutines.Job
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.coroutines.CoroutineContext
 
-class MainActivity : AppCompatActivity(), CoroutineScope {
-    private val binding by lazy {
-        DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-    }
-    private val viewModel by viewModel<ListViewModel>()
-    private lateinit var job: Job
-
-    override val coroutineContext: CoroutineContext
-        get() = Dispatchers.Main + job
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        job = Job()
-        binding.viewPager.adapter = ListPagerAdapter(supportFragmentManager)
-        lifecycle.addObserver(viewModel)
-    }
-
-    override fun onDestroy() {
-        job.cancel()
-        super.onDestroy()
-    }
-
-    inner class ListPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
-        private val items = listOf("kotlin", "android", "swift", "ios")
-        override fun getItem(position: Int): Fragment {
-            return ListFragment(items[position])
-        }
-
-        override fun getCount(): Int {
-            return items.size
-        }
-
-        override fun getPageTitle(position: Int): CharSequence? {
-            return items[position]
-        }
+        setContentView(R.layout.activity_main)
     }
 }
