@@ -15,7 +15,7 @@ class ListViewModel(private val useCase: ArticleUseCase) : ViewModel(), Lifecycl
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     @Suppress("UNUSED")
-    fun onCreate() = viewModelScope.launch {
+    fun onStart() = viewModelScope.launch {
         load()
     }
 
