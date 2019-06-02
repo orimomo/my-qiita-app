@@ -28,7 +28,7 @@ class DetailFragment : Fragment(), CoroutineScope {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         binding = FragmentDetailBinding.inflate(inflater, container, false)
-        val a = args.article
+        binding.webView.loadUrl(args.article.url)
         return binding.root
     }
 
