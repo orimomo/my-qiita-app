@@ -13,9 +13,9 @@ import kotlinx.coroutines.Job
 import kotlin.coroutines.CoroutineContext
 
 class DetailFragment : Fragment(), CoroutineScope {
-    private lateinit var binding: FragmentDetailBinding
-
     private lateinit var job: Job
+    private lateinit var binding: FragmentDetailBinding
+    private val args by navArgs<DetailFragmentArgs>()
 
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job

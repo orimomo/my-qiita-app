@@ -15,7 +15,7 @@ class ListItem(private val article: ArticleEntity) : BindableItem<ItemListBindin
         viewBinding.article = article
 
         viewBinding.root.setOnClickListener { view ->
-            val direction = PagerFragmentDirections.actionToDetail()
+            val direction = PagerFragmentDirections.actionToDetail(article.id)
             view.findNavController().navigate(direction)
         }
 
