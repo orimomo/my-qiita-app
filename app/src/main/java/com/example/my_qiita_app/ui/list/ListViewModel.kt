@@ -13,19 +13,19 @@ class ListViewModel(private val useCase: ArticleUseCase) : ViewModel(), Lifecycl
     val message = MutableLiveData<String>()
     val status = MutableLiveData<Status>()
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     @Suppress("UNUSED")
-    fun onStart() = viewModelScope.launch {
+    fun onCreate() = viewModelScope.launch {
         load()
     }
 
-    private suspend fun load() {
+    suspend fun load() {
         status.value = Status.LOADING
         try {
             kotlinArticles.value = useCase.getArticles("1", "tag:kotlin")
-//            androidArticles.value = useCase.getArticles("1", "tag:android")
-//            swiftArticles.value = useCase.getArticles("1", "tag:swift")
-//            iosArticles.value = useCase.getArticles("1", "tag:ios")
+            androidArticles.value = useCase.getArticles("1", "tag:android")
+            swiftArticles.value = useCase.getArticles("1", "tag:swift")
+            iosArticles.value = useCase.getArticles("1", "tag:ios")
             status.value = Status.COMPLETED
         } catch(e: Throwable) {
             message.value = "エラーが発生しました。"
