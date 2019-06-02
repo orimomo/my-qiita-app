@@ -23,9 +23,9 @@ class ListViewModel(private val useCase: ArticleUseCase) : ViewModel(), Lifecycl
         status.value = Status.LOADING
         try {
             kotlinArticles.value = useCase.getArticles("1", "tag:kotlin")
-            androidArticles.value = useCase.getArticles("1", "tag:android")
-            swiftArticles.value = useCase.getArticles("1", "tag:swift")
-            iosArticles.value = useCase.getArticles("1", "tag:ios")
+//            androidArticles.value = useCase.getArticles("1", "tag:android")
+//            swiftArticles.value = useCase.getArticles("1", "tag:swift")
+//            iosArticles.value = useCase.getArticles("1", "tag:ios")
             status.value = Status.COMPLETED
         } catch(e: Throwable) {
             message.value = "エラーが発生しました。"
