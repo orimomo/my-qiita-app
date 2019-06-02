@@ -18,7 +18,7 @@
         android:name="com.example.my_qiita_app.ui.DetailFragment"
         android:label="記事詳細">
         <argument
-            android:name="id"
-            app:argType="string"/>
+            android:name="article"
+            app:argType="com.example.my_qiita_app.data.entity.ArticleEntity"/>
     </fragment>
 </navigation>
