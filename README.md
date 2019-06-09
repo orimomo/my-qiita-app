@@ -1,4 +1,4 @@
-# my_qiita_app
+# my-qiita-app
 
 ## 概要
 * 自分専用のQiitaクライアントアプリ
@@ -16,7 +16,7 @@
 ### サポートライブラリ
 * AndroidX
 
-### API通信まわり
+### API通信
 * okhttp3
 * retrofit2
 * moshi
@@ -24,7 +24,7 @@
 ### DI
 * Koin
 
-### UIまわり
+### UI
 * coroutines
 * groupie
 * glide
