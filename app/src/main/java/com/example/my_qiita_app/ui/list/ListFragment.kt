@@ -10,21 +10,19 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.my_qiita_app.data.entity.ArticleEntity
-import com.example.my_qiita_app.databinding.FragmentLsitBinding
+import com.example.my_qiita_app.databinding.FragmentListBinding
 import com.google.android.material.snackbar.Snackbar
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import kotlin.coroutines.CoroutineContext
 
 class ListFragment(private val tabName: String) : Fragment(), CoroutineScope {
-    private lateinit var binding: FragmentLsitBinding
+    private lateinit var binding: FragmentListBinding
     private val viewModel by sharedViewModel<ListViewModel>()
     private val groupAdapter = GroupAdapter<ViewHolder>()
     private lateinit var job: Job
@@ -40,7 +38,7 @@ class ListFragment(private val tabName: String) : Fragment(), CoroutineScope {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         val itemDecoration = DividerItemDecoration(activity, DividerItemDecoration.VERTICAL)
-        binding = FragmentLsitBinding.inflate(inflater, container, false)
+        binding = FragmentListBinding.inflate(inflater, container, false)
         binding.recyclerView.adapter = groupAdapter
         binding.recyclerView.addItemDecoration(itemDecoration)
         val layoutManager = LinearLayoutManager(activity)

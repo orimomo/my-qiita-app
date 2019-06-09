@@ -1,6 +1,7 @@
 package com.example.my_qiita_app.data.entity
 
 import com.squareup.moshi.Json
+import java.io.Serializable
 
 data class ArticleEntity(
     @Json(name = "id")
@@ -19,7 +20,7 @@ data class ArticleEntity(
     val likes: String,
     @field:Json(name = "created_at")
     val createdAt: String
-) {
+) : Serializable {
     fun getTagsString() : String {
         val builder = StringBuilder()
         builder.append("${tags.first().name}")

@@ -13,13 +13,13 @@ class ListViewModel(private val useCase: ArticleUseCase) : ViewModel(), Lifecycl
     val message = MutableLiveData<String>()
     val status = MutableLiveData<Status>()
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     @Suppress("UNUSED")
     fun onCreate() = viewModelScope.launch {
         load()
     }
 
-    private suspend fun load() {
+    suspend fun load() {
         status.value = Status.LOADING
         try {
             kotlinArticles.value = useCase.getArticles("1", "tag:kotlin")
