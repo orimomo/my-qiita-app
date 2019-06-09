@@ -2,6 +2,7 @@
 
 ## 概要
 * 自分専用のQiitaクライアントアプリ
+* kotlin、Android、Swift、iOSのタグが付いている最新記事を表示する
 * 非同期処理ではCoroutine、画面遷移ではJetpack Navigationを使用
 
 ## デモ
