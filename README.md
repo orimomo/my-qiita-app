@@ -2,7 +2,8 @@
 
 ## 概要
 * 自分専用のQiitaクライアントアプリ
-* kotlin、Android、Swift、iOSのタグが付いている最新記事を表示する
+* Kotlin、Android、Swift、iOSのタグが付いている最新記事を表示する
+* データ取得には[Qiita API v2](https://qiita.com/api/v2/docs)を使用
 * 非同期処理ではCoroutine、画面遷移ではJetpack Navigationを使用
 
 ## デモ
