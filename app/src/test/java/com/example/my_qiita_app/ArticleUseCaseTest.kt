@@ -11,7 +11,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class ArticleUseCaseTest {
-    // モックインスタンスの生成
+    // Repositoryのモックインスタンスの生成
     private val mockRepository = mockk<ArticleRepository> {
         // パターンの設定
         coEvery { getArticles(any(), any()) } returns listOf(ArticleEntity(), ArticleEntity())
