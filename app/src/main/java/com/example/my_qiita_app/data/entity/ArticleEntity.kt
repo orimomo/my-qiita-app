@@ -23,9 +23,9 @@ data class ArticleEntity(
 ) : Serializable {
     fun getTagsString() : String {
         val builder = StringBuilder()
-        builder.append("${tags.first().name}")
+        builder.append(tags.first().name)
         if (tags.size >= 2) {
-            for (i in 1..(tags.size-1))
+            for (i in 1 until tags.size)
             builder.append(", ${tags[i].name}")
         }
         return builder.toString()
