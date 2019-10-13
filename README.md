@@ -10,8 +10,8 @@
 ![my_qiita_app_videl](https://user-images.githubusercontent.com/12453846/58762446-0574cd80-858b-11e9-8500-3dbccb6674cc.gif)
 
 ## 環境
-* macOS: 10.14.1
-* Android Studio: 3.4
+* macOS: Catalina 10.15
+* Android Studio: 3.5
 
 ## 使用しているライブラリ
 ### サポートライブラリ
