@@ -2,9 +2,9 @@
 
 ## 概要
 * 自分専用のQiitaクライアントアプリ
-* Kotlin、Android、Swift、iOSのタグが付いている最新記事を表示する
+    * Kotlin、Android、Swift、iOSのタグが付いている最新記事を表示する
 * データ取得には[Qiita API v2](https://qiita.com/api/v2/docs)を使用
-* 非同期処理ではCoroutine、画面遷移ではJetpack Navigationを使用
+* アーキテクチャはMVVM + レイヤードアーキテクチャ
 
 ## デモ
 ![my_qiita_app_videl](https://user-images.githubusercontent.com/12453846/58762446-0574cd80-858b-11e9-8500-3dbccb6674cc.gif)
@@ -26,6 +26,13 @@
 * Koin
 
 ### UI
-* coroutines
 * groupie
 * glide
+* navigation
+
+### テスト
+* mockk
+* core-testing
+
+### その他
+* kotlinx.coroutine
