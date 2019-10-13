@@ -4,5 +4,5 @@ import com.squareup.moshi.Json
 
 data class TagEntity (
     @Json(name = "name")
-    val name: String
+    val name: String = ""
 )
