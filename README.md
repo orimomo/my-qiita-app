@@ -5,6 +5,7 @@
     * Kotlin、Android、Swift、iOSのタグが付いている最新記事を表示する
 * データ取得には[Qiita API v2](https://qiita.com/api/v2/docs)を使用
 * アーキテクチャはMVVM + レイヤードアーキテクチャ
+* 軽くモックテストも書いてます
 
 ## デモ
 ![my_qiita_app_videl](https://user-images.githubusercontent.com/12453846/58762446-0574cd80-858b-11e9-8500-3dbccb6674cc.gif)
